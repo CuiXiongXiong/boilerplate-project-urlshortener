@@ -22,7 +22,7 @@ app.get('/api/hello', function(req, res) {
 });
 
 const urlDatabase = new Map();
-let counter = 1;
+let counter = 0;
 
 app.use(bodyParser.json());
 // URL验证函数
