@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const { URL } = require('url');
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
@@ -35,7 +36,7 @@ function isValidUrl(urlString) {
 
 // POST创建短链
 app.post('/api/shorturl', (req, res) => {
-    const originalUrl = req.url;
+    const originalUrl = req.body.url;
 
     if (!isValidUrl(originalUrl)) {
         return res.json({ error: 'invalid url' });
