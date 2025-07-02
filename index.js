@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const { URL } = require('url');
+const bodyParser = require('body-parser');
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
@@ -23,6 +24,7 @@ app.get('/api/hello', function(req, res) {
 const urlDatabase = new Map();
 let counter = 1;
 
+app.use(bodyParser.json());
 // URL验证函数
 function isValidUrl(urlString) {
     try {
