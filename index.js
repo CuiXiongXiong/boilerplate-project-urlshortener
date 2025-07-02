@@ -35,7 +35,7 @@ function isValidUrl(urlString) {
 
 // POST创建短链
 app.post('/api/shorturl', (req, res) => {
-    const originalUrl = req.body.url;
+    const originalUrl = req.url;
 
     if (!isValidUrl(originalUrl)) {
         return res.json({ error: 'invalid url' });
